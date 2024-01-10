@@ -1010,11 +1010,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/romario/workspace/Uai-software/movieFlix/MovieFlix-dotnet/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
+      "projectUniqueName": "/home/romario/workspace/Uai-software/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
       "projectName": "MovieFlix-dotnet",
-      "projectPath": "/home/romario/workspace/Uai-software/movieFlix/MovieFlix-dotnet/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
+      "projectPath": "/home/romario/workspace/Uai-software/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
       "packagesPath": "/home/romario/.nuget/packages/",
-      "outputPath": "/home/romario/workspace/Uai-software/movieFlix/MovieFlix-dotnet/MovieFlix-dotnet/obj/",
+      "outputPath": "/home/romario/workspace/Uai-software/MovieFlix-dotnet/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/romario/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rKqFT01JYayUM1XY7V8nOGN1xz/WCeXsrO8MobCQrJ+pUlKCTK5sycjbe/3b6/ZZurDR9e2GKgsjQ23240XTcg==",
+  "dgSpecHash": "kLHRZ5JKOGbeMNDo3cpGnX0jPTJvEc2yD3tQefJAx3taWhYvoObt1hULCRc930BTJXIbkD0AICGO0uexzoiWzg==",
   "success": true,
-  "projectFilePath": "/home/romario/workspace/Uai-software/movieFlix/MovieFlix-dotnet/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
+  "projectFilePath": "/home/romario/workspace/Uai-software/MovieFlix-dotnet/MovieFlix-dotnet.csproj",
   "expectedPackageFiles": [
     "/home/romario/.nuget/packages/microsoft.entityframeworkcore/8.0.1/microsoft.entityframeworkcore.8.0.1.nupkg.sha512",
     "/home/romario/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.1/microsoft.entityframeworkcore.abstractions.8.0.1.nupkg.sha512",
