@@ -18,11 +18,6 @@ namespace MovieFlix_dotnet.Repository
             _context.Add(movie);
         }
 
-        public void DeleteMovie(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Movie> FindMovieById(int id)
         {
             return await _context.Movies.Where(x=> x.Id == id).FirstOrDefaultAsync();
@@ -42,6 +37,11 @@ namespace MovieFlix_dotnet.Repository
         public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() > 0;
+        }
+
+        public void DeleteMovie(Movie movie)
+        {
+            _context.Remove(movie);
         }
     }
 }

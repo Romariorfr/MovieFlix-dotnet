@@ -12,7 +12,7 @@ namespace MovieFlix_dotnet.Repository
 
         void UpdateMovie(Movie movie);
 
-        void DeleteMovie(int id);
+        void DeleteMovie(Movie movie);
 
         Task<bool> SaveChangesAsync();
        

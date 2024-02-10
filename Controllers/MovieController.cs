@@ -56,5 +56,18 @@ namespace MovieFlix_dotnet.Controllers
 
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var movieEntity = await _movieRepository.FindMovieById(id);
+            if (movieEntity == null) return NotFound("Usuário não encontrado");
+
+            _movieRepository.DeleteMovie(movieEntity);
+
+            return await _movieRepository.SaveChangesAsync() ? Ok("Usuário deletado com sucesso!") : BadRequest("Erro ao atualizar o usuário");
+
+
+        }
+
     }
 }
