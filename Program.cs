@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MovieFlix_dotnet.Data;
+using MovieFlix_dotnet.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MovieContext>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
+
+builder.Services.AddScoped<IMovieRepository, MovieRepository>(); 
 
 var app = builder.Build();
 

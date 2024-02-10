@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieFlix.Models;
+using MovieFlix_dotnet.Repository;
 
 namespace MovieFlix_dotnet.Controllers
 {
@@ -7,27 +8,25 @@ namespace MovieFlix_dotnet.Controllers
     [Route("api/[controller]")]
     public class MovieController : ControllerBase
     {
-        private static List<Movie> Movies()
+
+        private readonly IMovieRepository _movieRepository;
+        public MovieController(IMovieRepository repository)
         {
-            return new List<Movie>
-            {
-                new Movie { Id = 1,Title = "O espetacular Homem Aranha", ImgUrl = "url_filme", SubTitle = "O sensor poderoso", Synopsis = "", Year = 2002},
-                new Movie { Id = 2,Title = "O Homem sem Sombra", ImgUrl = "url_filme", SubTitle = "fuja", Synopsis = "", Year = 2002}
-            };
+            _movieRepository = repository;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(Movies());
+            var movies = await _movieRepository.FindMovies();
+            return movies.Any() ? Ok(movies) : NoContent();
         }
 
         [HttpPost]
-        public IActionResult Post(Movie movie)
+        public async Task<IActionResult> Post(Movie movie)
         {
-            var movies = Movies();
-            movies.Add(movie);
-            return Ok(movies);
+            _movieRepository.AddMovie(movie);
+            return await _movieRepository.SaveChangesAsync() ? Ok("Filme Adicionado com sucesso") : BadRequest("Erro ao salvar o filme");
 
         }
 
