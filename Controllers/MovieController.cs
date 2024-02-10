@@ -39,5 +39,22 @@ namespace MovieFlix_dotnet.Controllers
 
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Movie movie)
+        {
+            var movieEntity = await _movieRepository.FindMovieById(id);
+            if (movieEntity == null) return NotFound("Usuário não encontrado");
+            movieEntity.Title = movie.Title ?? movieEntity.Title;
+            movieEntity.SubTitle = movie.SubTitle ?? movieEntity.SubTitle;
+            movieEntity.Synopsis = movie.Synopsis ?? movieEntity.Synopsis;
+            movieEntity.Year = movie.Year ?? movieEntity.Year;
+            movie.ImgUrl = movie.ImgUrl ?? movieEntity.ImgUrl;
+
+            _movieRepository.UpdateMovie(movieEntity);
+
+            return await _movieRepository.SaveChangesAsync() ? Ok("Usuário atualizado com sucesso!") : BadRequest("Erro ao salvar o usuário!");
+
+        }
+
     }
 }

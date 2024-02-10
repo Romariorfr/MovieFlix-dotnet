@@ -35,7 +35,8 @@ namespace MovieFlix_dotnet.Repository
 
         public void UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            _context.Update(movie);
+
         }
 
         public async Task<bool> SaveChangesAsync()
