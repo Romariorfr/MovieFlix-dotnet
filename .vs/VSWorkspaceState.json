@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Repository"
   ],
-  "SelectedNode": "\\Models",
+  "SelectedNode": "\\Repository\\IMovieRepository.cs",
   "PreviewInSolutionExplorer": false
 }
