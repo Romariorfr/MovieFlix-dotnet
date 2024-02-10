@@ -23,9 +23,9 @@ namespace MovieFlix_dotnet.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Movie>> FindMovieById(int id)
+        public async Task<Movie> FindMovieById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Movies.Where(x=> x.Id == id).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Movie>> FindMovies()

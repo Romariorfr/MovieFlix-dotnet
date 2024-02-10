@@ -6,7 +6,7 @@ namespace MovieFlix_dotnet.Repository
     {
         Task <IEnumerable<Movie>> FindMovies();
 
-        Task<IEnumerable<Movie>> FindMovieById(int id);
+        Task<Movie> FindMovieById(int id);
 
         void AddMovie(Movie movie);
 

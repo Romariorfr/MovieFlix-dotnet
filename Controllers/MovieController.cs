@@ -14,6 +14,7 @@ namespace MovieFlix_dotnet.Controllers
         {
             _movieRepository = repository;
         }
+        
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -21,6 +22,14 @@ namespace MovieFlix_dotnet.Controllers
             var movies = await _movieRepository.FindMovies();
             return movies.Any() ? Ok(movies) : NoContent();
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var movie = await _movieRepository.FindMovieById(id);
+            return movie != null ? Ok(movie) : NotFound("Usuário não encontrado");
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Post(Movie movie)
