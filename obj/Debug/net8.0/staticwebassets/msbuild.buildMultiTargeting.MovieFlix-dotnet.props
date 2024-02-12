@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\MovieFlix-dotnet.props" />
-</Project>
