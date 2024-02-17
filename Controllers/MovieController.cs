@@ -14,7 +14,7 @@ namespace MovieFlix_dotnet.Controllers
         {
             _movieRepository = repository;
         }
-        
+
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -27,7 +27,7 @@ namespace MovieFlix_dotnet.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var movie = await _movieRepository.FindMovieById(id);
-            return movie != null ? Ok(movie) : NotFound("Usuário não encontrado");
+            return movie != null ? Ok(movie) : NotFound("filme não encontrado");
         }
 
 
@@ -43,16 +43,17 @@ namespace MovieFlix_dotnet.Controllers
         public async Task<IActionResult> Put(int id, Movie movie)
         {
             var movieEntity = await _movieRepository.FindMovieById(id);
-            if (movieEntity == null) return NotFound("Usuário não encontrado");
+            if (movieEntity == null) return NotFound("Filme não encontrado");
             movieEntity.Title = movie.Title ?? movieEntity.Title;
             movieEntity.SubTitle = movie.SubTitle ?? movieEntity.SubTitle;
             movieEntity.Synopsis = movie.Synopsis ?? movieEntity.Synopsis;
             movieEntity.Year = movie.Year ?? movieEntity.Year;
             movie.ImgUrl = movie.ImgUrl ?? movieEntity.ImgUrl;
 
+
             _movieRepository.UpdateMovie(movieEntity);
 
-            return await _movieRepository.SaveChangesAsync() ? Ok("Usuário atualizado com sucesso!") : BadRequest("Erro ao salvar o usuário!");
+            return await _movieRepository.SaveChangesAsync() ? Ok("Filme atualizado com sucesso!") : BadRequest("Erro ao salvar o filme!");
 
         }
 
@@ -60,11 +61,11 @@ namespace MovieFlix_dotnet.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var movieEntity = await _movieRepository.FindMovieById(id);
-            if (movieEntity == null) return NotFound("Usuário não encontrado");
+            if (movieEntity == null) return NotFound("Filme não encontrado");
 
             _movieRepository.DeleteMovie(movieEntity);
 
-            return await _movieRepository.SaveChangesAsync() ? Ok("Usuário deletado com sucesso!") : BadRequest("Erro ao atualizar o usuário");
+            return await _movieRepository.SaveChangesAsync() ? Ok("Filme deletado com sucesso!") : BadRequest("Erro ao atualizar o filme");
 
 
         }
