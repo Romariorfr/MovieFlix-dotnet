@@ -6,9 +6,9 @@ namespace MovieFlix_dotnet.Repository
 {
     public class MovieRepository : IMovieRepository
     {
-        private readonly MovieContext _context;
+        private readonly MyContext _context;
 
-        public MovieRepository(MovieContext context)
+        public MovieRepository(MyContext context)
         {
             _context = context;
         }

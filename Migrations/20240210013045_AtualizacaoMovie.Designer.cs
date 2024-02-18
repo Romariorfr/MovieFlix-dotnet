@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MovieFlix_dotnet.Migrations
 {
-    [DbContext(typeof(MovieContext))]
+    [DbContext(typeof(MyContext))]
     [Migration("20240210013045_AtualizacaoMovie")]
     partial class AtualizacaoMovie
     {

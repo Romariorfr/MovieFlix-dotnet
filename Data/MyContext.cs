@@ -3,9 +3,9 @@ using MovieFlix.Models;
 
 namespace MovieFlix_dotnet.Data
 {
-    public class MovieContext : DbContext
+    public class MyContext : DbContext
     {
-        public MovieContext(DbContextOptions<MovieContext> options) : base(options)
+        public MyContext(DbContextOptions<MyContext> options) : base(options)
         {
 
         }
@@ -39,6 +39,13 @@ namespace MovieFlix_dotnet.Data
 
             movie.Property(x => x.Synopsis)
                 .HasColumnName("synopsis");
+
+
+            movie.HasOne(x => x.Genre)
+                .WithMany(x => x.Movies)
+                .HasForeignKey(x => x.GenreId)
+                .HasPrincipalKey(x => x.Id)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
     }

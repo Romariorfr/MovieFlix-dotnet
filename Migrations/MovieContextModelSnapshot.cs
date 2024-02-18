@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MovieFlix_dotnet.Migrations
 {
-    [DbContext(typeof(MovieContext))]
+    [DbContext(typeof(MyContext))]
     partial class MovieContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -83,7 +83,8 @@ namespace MovieFlix_dotnet.Migrations
                 {
                     b.HasOne("MovieFlix_dotnet.Models.Genre", "Genre")
                         .WithMany("Movies")
-                        .HasForeignKey("GenreId");
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Genre");
                 });

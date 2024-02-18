@@ -17,7 +17,7 @@ namespace MovieFlix_dotnet.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             var movies = await _movieRepository.FindMovies();
             return movies.Any() ? Ok(movies) : NoContent();
