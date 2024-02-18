@@ -4,9 +4,9 @@ namespace MovieFlix_dotnet.Repository
 {
     public interface IMovieRepository
     {
-        Task <IEnumerable<Movie>> FindMovies();
+        Task<IEnumerable<Movie>> FindMovies();
 
-        Task<Movie> FindMovieById(int id);
+        Task<Movie?> FindMovieById(int id);
 
         void AddMovie(Movie movie);
 
@@ -15,7 +15,7 @@ namespace MovieFlix_dotnet.Repository
         void DeleteMovie(Movie movie);
 
         Task<bool> SaveChangesAsync();
-       
+
 
 
 

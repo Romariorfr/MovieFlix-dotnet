@@ -1,3 +1,5 @@
+using MovieFlix_dotnet.Models;
+
 namespace MovieFlix.Models
 {
 
@@ -9,6 +11,8 @@ namespace MovieFlix.Models
         public int? Year { get; set; }
         public string? ImgUrl { get; set; }
         public string? Synopsis { get; set; }
+        public int? GenreId { get; set; }
+        public Genre? Genre { get; set; }
 
     }
 
